@@ -10,6 +10,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { HeaderComponent } from './header/header.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { WislistItemComponent } from './wishlist/wishlist-list/wislist-item/wislist-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BookItemComponent,
     WishlistComponent,
     HeaderComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    WislistItemComponent,
   ],
   imports: [
     BrowserModule,

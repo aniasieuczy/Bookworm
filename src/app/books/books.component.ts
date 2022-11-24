@@ -34,14 +34,16 @@ export class BooksComponent implements OnInit {
       this.signupForm.value['title'],
       this.signupForm.value['img'],
       this.signupForm.value['author'],
-      this.signupForm.value['wishlist']
     );
+
     if(this.signupForm.value['wishlist'] === true) {
       this.bookService.addToWishlist(newBook);
-      console.log(this.bookService.getWishlist());
+      // console.log(this.bookService.getWishlist());
+    } else {
+      this.bookService.addNewBooks(newBook);
+      this.signupForm.reset();
     }
-    this.bookService.addNewBooks(newBook);
-    console.log(this.bookService.getBooks());
+    // console.log(this.bookService.getBooks());
   }
 
 

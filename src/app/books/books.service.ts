@@ -4,8 +4,9 @@ import {Subject} from "rxjs";
 
 @Injectable({providedIn: "root"})
 export class BooksService {
-  bookSelected = new EventEmitter<Book>();
   booksChanged = new Subject<Book[]>();
+  wishlistChanged = new Subject<Book[]>();
+  bookSelected = new Subject<number>();
 
     private books: Book [] = [
     new Book(
@@ -23,7 +24,16 @@ export class BooksService {
   ];
 
     private wishlist: Book [] = [
-
+      new Book(
+        'Moja wymarzona książka',
+        'https://edit.org/photos/images/cat/book-covers-big-2019101610.jpg-1300.jpg',
+        'Kowalski Jan'
+      ),
+      new Book (
+        'Test',
+        'https://img.tantis.pl/image/87fe2194-77c5-4abd-8a75-4e87de46df07/550x400/webp',
+        'Związek Szkółkarzy'
+      )
     ]
 
   getBooks() {
@@ -37,11 +47,18 @@ export class BooksService {
 
   addToWishlist(book: Book) {
       this.wishlist.push(book);
+      this.wishlistChanged.next(this.wishlist.slice());
   }
 
   getWishlist() {
       return this.wishlist.slice();
   }
+
+  delete (id: number) {
+      this.wishlist.splice(id, 1);
+      this.wishlistChanged.next(this.wishlist.slice());
+  }
+
 
 
 

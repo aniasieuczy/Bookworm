@@ -1,8 +1,10 @@
 export class Book {
+
   public title: string;
   public imagePath: string;
   public author: string;
   public wishlist?: boolean;
+  public category? : string;
 
   constructor(title: string, imagePath: string, author: string, wishlist?: boolean) {
     this.title = title;

@@ -1,6 +1,6 @@
 
-<div class="bookItem" (click)="onSelected()">
-  <a href="#" class="bookItem_bookLink">
+<div class="bookItem">
+  <div class="bookItem_bookLink">
     <div class="bookItem_bookLink_right">
       <img src="{{ book.imagePath }}" [src]="book.imagePath" alt="" style="max-height: 150px;">
     </div>
@@ -9,5 +9,5 @@
       <p> {{ book.title }} </p>
       <p> Autor: {{ book.author }}</p>
     </div>
-  </a>
+  </div>
 </div>

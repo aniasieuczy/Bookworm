@@ -9,17 +9,12 @@ import {Book} from "../../book.model";
   styleUrls: ['./book-item.component.scss']
 })
 export class BookItemComponent implements OnInit {
-  @Input() book: Book = {author: 'Anna Szpecht', title: 'test', imagePath: 'testowa'};
+  @Input() book: Book;
 
   constructor(private bookService: BooksService) {
   }
 
   ngOnInit(): void {
   }
-
-  onSelected() {
-    this.bookService.bookSelected.emit(this.book);
-  }
-
 
 }
