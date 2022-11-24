@@ -1,0 +1,30 @@
+.newBooks {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+.newBooks p {
+  text-align: center;
+}
+.bookItem {
+  border-bottom: 1px solid darkgrey;
+  width: 450px;
+  background-color: #e9ecef;
+  margin-top: 1rem;
+}
+.bookItem_bookLink {
+  display: flex;
+  text-decoration: none;
+  color: #495057;
+}
+.bookItem_bookLink_left {
+  margin-left: 1rem;
+}
+.bookItem_bookLink_left p:first-child {
+  font-weight: bold;
+}
+.bookItem_bookLink_left p:nth-of-type(2) {
+  font-size: 0.8rem;
+}
+
+/*# sourceMappingURL=books.component.css.map */

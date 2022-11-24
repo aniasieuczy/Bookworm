@@ -3,14 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BooksComponent } from './books/books.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { BookItemComponent } from './books/book-list/book-item/book-item.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { HeaderComponent } from './header/header.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BooksComponent,
+    BookListComponent,
+    BookItemComponent,
+    WishlistComponent,
+    HeaderComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

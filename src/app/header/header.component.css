@@ -1,0 +1,23 @@
+.header {
+  border: solid 1px red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #adb5bd;
+  color: #495057;
+}
+.header_nav {
+  display: flex;
+}
+.header_nav li {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem;
+}
+.header_nav a {
+  text-decoration: none;
+  color: #495057;
+}
+
+/*# sourceMappingURL=header.component.css.map */
