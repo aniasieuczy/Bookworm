@@ -1,5 +1,6 @@
 <div class="newBooks">
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
     <div class="newBooks_left">
     <p>Add a Book</p>
     <label for="title">Title </label>
@@ -8,21 +9,50 @@
     <input type="text" id="author" formControlName="author">
     <label for="img">Cover </label>
     <input type="text" id="img" formControlName="img">
-    <div class="newBooks_form">
+
+      <div class="newBooks_wishlist">
       <label for="wishlist">WISHLIST</label>
       <input type="checkbox" id="wishlist" name="wishlist" formControlName="wishlist">
     </div>
     </div>
 
-    <div class="newBooks_right">
-    <label for="category">Select category</label>
-    <select id="category" name="category">
-      <option value="Naukowa">Naukowe</option>
-      <option value="thriller">Thriller, kryminał, sensacja</option>
-      <option value="fantastyka">Fantastyka</option>
-      <option value="piękna">Literatura piękna</option>
-    </select>
+    <div class="newBooks_radioBtn">
+      <div id="category">
+      <label for="category"> Categories: </label>
+      </div>
+      <div>
+        <input id="naukowe" type="radio" value="naukowe" name="category" formControlName="category">
+        <label for="naukowe">Naukowe</label>
+      </div>
+      <div>
+        <input id="thriller" type="radio" value="thriller" name="category" formControlName="category">
+        <label for="thriller">Thriller, kryminał</label>
+      </div>
+      <div>
+        <input id="fantastyka" type="radio" value="fantastyka" name="category" formControlName="category">
+        <label for="fantastyka">fantastyka</label>
+      </div>
+      <div>
+        <input id="piękna" type="radio" value="piękna" name="category" formControlName="category">
+        <label for="piękna">piękna</label>
+            </div>
     </div>
+<!--      <div class="form-group">-->
+<!--        <label for="gender">Gender:</label>-->
+<!--        <div>-->
+<!--          <input id="male" type="radio" value="male" name="gender" formControlName="gender">-->
+<!--          <label for="male">Male</label>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--          <input id="female" type="radio" value="female" name="gender" formControlName="gender">-->
+<!--          <label for="female">Female</label>-->
+<!--        </div>-->
+
+<!--        <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">-->
+<!--          <div *ngIf="f.gender.errors.required">Name is required.</div>-->
+<!--        </div>-->
+<!--      </div>-->
 
     <button type="submit">ADD</button>
   </form>

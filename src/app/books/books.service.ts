@@ -33,6 +33,11 @@ export class BooksService {
         'Test',
         'https://img.tantis.pl/image/87fe2194-77c5-4abd-8a75-4e87de46df07/550x400/webp',
         'Związek Szkółkarzy'
+      ),
+      new Book(
+        'Wszyscy jestesmy osiołkami',
+        'https://s.lubimyczytac.pl/upload/books/3787000/3787121/515840-352x500.jpg',
+        'Boutavant Marc'
       )
     ]
 
@@ -55,11 +60,9 @@ export class BooksService {
   }
 
   delete (id: number) {
-      this.wishlist.splice(id, 1);
+      this.wishlist.splice(1, 1);
       this.wishlistChanged.next(this.wishlist.slice());
   }
-
-
 
 
 }
