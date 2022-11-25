@@ -9,13 +9,16 @@
 .header_nav {
   display: flex;
 }
-.header_nav li {
+.header_nav_active {
+  background-color: white;
+}
+.header_nav_active li {
   list-style: none;
   text-decoration: none;
   display: inline-block;
   padding: 0.5rem;
 }
-.header_nav a {
+.header_nav_active a {
   text-decoration: none;
   color: #495057;
 }

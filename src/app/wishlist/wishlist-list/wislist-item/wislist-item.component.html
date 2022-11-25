@@ -1,5 +1,5 @@
 <div class="bookItem">
-  <div class="bookItem_bookLink" (click)="onMarkAsOwned()">
+  <div class="bookItem_bookLink" >
     <div class="bookItem_bookLink_right">
       <img src="{{ wishlist.imagePath }}" [src]="wishlist.imagePath" alt="" style="max-height: 150px;">
     </div>
@@ -8,6 +8,6 @@
       <p> {{ wishlist.title }} </p>
       <p> Autor: {{ wishlist.author }}</p>
     </div>
-    <button type="submit">Mark as owned</button>
+    <button type="submit" (click)="onMarkAsOwned()" >Mark as owned</button>
   </div>
 </div>

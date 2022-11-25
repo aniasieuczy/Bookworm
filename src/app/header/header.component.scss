@@ -5,20 +5,20 @@
   justify-content: center;
   background-color: #adb5bd;
   color: #495057;
-
   &_nav {
     display: flex;
-
-    li {
-      list-style: none;
-      text-decoration: none;
-      display: inline-block;
-      padding: 0.5rem;
-    }
-
-    a {
-      text-decoration: none;
-      color: #495057;
+    &_active {
+      background-color: white;
+      li {
+        list-style: none;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5rem;
+      }
+      a {
+        text-decoration: none;
+        color: #495057;
+      }
     }
   }
 }
