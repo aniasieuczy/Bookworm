@@ -1,11 +1,26 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+form {
+  display: flex;
+}
+
 .newBooks {
+  border: 1px solid #adb5bd;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0.5rem;
+  padding: 1rem;
 }
 .newBooks p {
   text-align: center;
 }
+.newBooks input {
+  margin: 0.2rem;
+}
+
 .bookItem {
   border-bottom: 1px solid darkgrey;
   width: 450px;

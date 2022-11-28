@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from "./book.model";
 import {BooksService} from "./books.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
-// enum categories {
-//   Naukowe = "Naukowe",
-//   Thriller = "Thriller",
-//   Fantastyka = "Fantastyka",
-//   Piękna = "Piękna"
-// }
+interface ICategories {
+  label: string;
+  value: string;
+  checked: boolean;
+}
 
 @Component({
   selector: 'app-books',
@@ -19,18 +18,40 @@ export class BooksComponent implements OnInit {
   selectedBook: Book;
   signupForm: FormGroup;
 
+  // checklistState = [
+  //   {
+  //     label: 'thriller',
+  //     value: 'thriller',
+  //     checked: false
+  //   },
+  //   {
+  //     label: 'naukowa',
+  //     value: 'naukowa',
+  //     checked: true,
+  //   },
+  //   {
+  //     label: 'fantastyka',
+  //     value: 'fantastyka',
+  //     checked: false
+  //   },
+  //   {
+  //     label: 'piękna',
+  //     value: 'piękna',
+  //     checked: false
+  //   },
+  // ];
 
-  constructor(private bookService: BooksService) {}
+  constructor(private bookService: BooksService) {
+  }
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      'title': new FormControl(null),
-      'author': new FormControl(null),
+      'title': new FormControl(null, Validators.required),
+      'author': new FormControl(null, Validators.required),
       'img': new FormControl(null),
-      'wishlist': new FormControl(''),
-      'category': new FormControl(null)
+      'category': new FormControl(null),
+      'wishlist': new FormControl('')
     });
-
   }
 
   onSubmit() {
@@ -38,11 +59,11 @@ export class BooksComponent implements OnInit {
       this.signupForm.value['title'],
       this.signupForm.value['img'],
       this.signupForm.value['author'],
+      this.signupForm.value['category'],
       this.signupForm.value['wishlist'],
-      this.signupForm.value['category']
     );
 
-    if(this.signupForm.value['wishlist'] === true) {
+    if (this.signupForm.value['wishlist'] === true) {
       this.bookService.addToWishlist(newBook);
       console.log(this.bookService.getWishlist());
       this.signupForm.reset();
@@ -53,5 +74,6 @@ export class BooksComponent implements OnInit {
     console.log(this.bookService.getBooks());
   }
 
-
 }
+
+

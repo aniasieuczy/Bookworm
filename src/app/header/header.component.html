@@ -1,7 +1,9 @@
 <nav class="header" routerLink="/">
   <ul class="header_nav">
-    <li routerLinkActive="header_nav_active"><a routerLink="/books">Books</a></li>
+    <li><a routerLink="/books" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Books</a></li>
     <li>Bookworm</li>
-    <li routerLinkActive="header_nav_active"><a routerLink="/wishlist">Wishlist</a></li>
+    <li><a routerLink="/wishlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}" >Wishlist</a></li>
   </ul>
 </nav>

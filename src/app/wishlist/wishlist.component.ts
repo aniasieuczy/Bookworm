@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Book} from "../books/book.model";
 import {BooksService} from "../books/books.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-wishlist',
@@ -9,7 +10,7 @@ import {BooksService} from "../books/books.service";
 })
 export class WishlistComponent implements OnInit {
   wishlist: Book [];
-
+  subs: Subscription;
   constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
@@ -25,5 +26,6 @@ export class WishlistComponent implements OnInit {
     this.booksService.bookSelected.next(index);
     console.log(index);
   }
+
 
 }

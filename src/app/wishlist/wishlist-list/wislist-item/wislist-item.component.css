@@ -1,8 +1,19 @@
+button {
+  padding: 0.5rem;
+  background-color: #284b63;
+  border-radius: 1.2rem;
+  color: white;
+  margin-right: 1rem;
+}
+
 .bookItem {
   border-bottom: 1px solid darkgrey;
   width: 450px;
   background-color: #e9ecef;
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .bookItem_bookLink {
   display: flex;

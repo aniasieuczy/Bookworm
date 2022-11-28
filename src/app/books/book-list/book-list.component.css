@@ -1,5 +1,8 @@
-.bookList {
+div {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
 }
 
 /*# sourceMappingURL=book-list.component.css.map */

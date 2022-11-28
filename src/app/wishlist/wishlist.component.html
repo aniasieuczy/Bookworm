@@ -1,16 +1,18 @@
-<!--<div>-->
-<!--<img *ngFor="let wish of wishlist" src="{{ wish.imagePath }}" alt="" style="max-height: 150px;">-->
-<!-- <p *ngFor="let wish of wishlist"> {{ wish.title }}</p>-->
-<!--  <p *ngFor="let wish of wishlist"> Author: {{ wish.author }}</p>-->
-<!--</div>-->
 <app-header></app-header>
 
+<!--<div>-->
+<!--  <img *ngFor="let wish of wishlist" src="{{ wish.imagePath }}" alt="" style="max-height: 150px;">-->
+<!--  <p *ngFor="let wish of wishlist"> {{ wish.title }}</p>-->
+<!--  <p *ngFor="let wish of wishlist"> Author: {{ wish.author }}</p>-->
+<!--</div>-->
+
+<div>
 <app-wislist-item
   *ngFor="let wish of wishlist; let i = index"
   [wishlist]="wish"
   (click)="onItemClick(i)"
 ></app-wislist-item>
-
+</div>
 
 
 

@@ -11,7 +11,8 @@ export class WislistItemComponent implements OnInit {
   @Input() wishlist: Book;
   selectedBookIndex: number;
 
-  constructor(private bookService: BooksService) {}
+  constructor(private bookService: BooksService) {
+  }
 
   ngOnInit(): void {
     this.bookService.bookSelected.subscribe(
@@ -22,6 +23,7 @@ export class WislistItemComponent implements OnInit {
   }
 
   onMarkAsOwned() {
+    console.log(this.selectedBookIndex);
     this.bookService.delete(this.selectedBookIndex);
   }
 
