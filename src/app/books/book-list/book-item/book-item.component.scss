@@ -1,3 +1,11 @@
+button {
+  background-color: #284b63;
+  color: #e9ecef;
+  padding: 0.4rem;
+  border-radius: 10px;
+}
+
+
 .bookItem {
   border-bottom: 1px solid darkgrey;
   width: 450px;
@@ -17,6 +25,9 @@
 
       p:nth-of-type(2) {
         font-size: 0.8rem;
+      }
+      p:nth-of-type(3) {
+        font-size: 1rem;
       }
     }
   }

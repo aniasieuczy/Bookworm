@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {Book} from "./book.model";
 import {BooksService} from "./books.service";
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import * as events from "events";
 
 interface ICategories {
   label: string;
@@ -17,8 +18,9 @@ interface ICategories {
 export class BooksComponent implements OnInit {
   selectedBook: Book;
   signupForm: FormGroup;
+  form: FormGroup;
 
-  // checklistState = [
+  // checkbox = [
   //   {
   //     label: 'thriller',
   //     value: 'thriller',
@@ -41,7 +43,31 @@ export class BooksComponent implements OnInit {
   //   },
   // ];
 
-  constructor(private bookService: BooksService) {
+  checkboxes = [
+    {
+      id: 1,
+      name: "naukowe",
+      selected: false
+    },
+    {
+      id: 2,
+      name: "thriller",
+      selected: false
+    },
+    {
+      id: 3,
+      name: "fantastyka",
+      selected: false
+    },
+    {
+      id: 4,
+      name: "piękna",
+      selected: false
+    }
+  ]
+
+  constructor(private bookService: BooksService,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -50,9 +76,24 @@ export class BooksComponent implements OnInit {
       'author': new FormControl(null, Validators.required),
       'img': new FormControl(null),
       'category': new FormControl(null, Validators.required),
-      'wishlist': new FormControl('')
+      'wishlist': new FormControl(''),
+      checkboxes: new FormArray([
+        new FormControl
+      ])
     });
+    // this.form.formBuilder.group({
+    //   checkboxes: this.buildCheckboxes()
+    // })
   }
+
+// buildCheckboxes () {
+//     const arr = this.checkboxes.map(box => {
+//       return this.formBuilder.control(box.selected)
+//     })
+//   return this.formBuilder.array(arr);
+// }
+
+
 
   onSubmit() {
     const newBook = new Book(
@@ -61,6 +102,7 @@ export class BooksComponent implements OnInit {
       this.signupForm.value['author'],
       this.signupForm.value['category'],
       this.signupForm.value['wishlist'],
+
     );
 
     if (this.signupForm.value['wishlist'] === true) {

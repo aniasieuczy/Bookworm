@@ -25,6 +25,8 @@
       </div>
 
     </div>
+
+
         <div class="newBooks_radioBtn">
       <div id="category">
         <p *ngIf="!signupForm.get('category')?.valid && signupForm.get('category')?.touched">Please chose a category!</p>
@@ -48,6 +50,19 @@
             </div>
     </div>
 
+
+
+<!--    <form [formGroup]="form" ></form>-->
+<!--    <div *ngFor="let item of checkboxes">-->
+<!--      <label>-->
+<!--        <input id="item"-->
+<!--               type="checkbox"-->
+<!--               value="item.id"-->
+<!--              formControlName="checkboxes">-->
+<!--        {{ item. name }}-->
+<!--      </label>-->
+
+<!--    </div>-->
 
   </form>
 </div>
