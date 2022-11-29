@@ -11,6 +11,7 @@ import {Subscription} from "rxjs";
 export class WishlistComponent implements OnInit {
   wishlist: Book [];
   subs: Subscription;
+
   constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
@@ -23,8 +24,10 @@ export class WishlistComponent implements OnInit {
   }
 
   onItemClick (index: number) {
-    this.booksService.bookSelected.next(index);
-    console.log(index);
+    this.booksService.delete(index);
+    this.booksService.wishlistChanged.next(this.wishlist);
+    // this.booksService.bookSelected.next(index);
+    // console.log(index);
   }
 
 

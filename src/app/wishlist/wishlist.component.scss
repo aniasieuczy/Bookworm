@@ -1,6 +1,33 @@
-div {
+//div {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  background-color: #f8f9fa;
+//}
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card {
+  display: flex;
   background-color: #f8f9fa;
+  border: 1px solid #495057;
+  width: 450px;
+  background-color: #f8f9fa;
+
+  &_img {
+    margin: 0 1rem;
+  }
+  &_left {
+
+  }
+
+  button {
+    background-color: #284b63;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
 }

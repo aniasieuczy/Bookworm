@@ -46,6 +46,10 @@ export class BooksService {
   getBooks() {
     return this.books.slice();
   }
+
+  getBook(index: number) {
+    return this.books[index];
+  }
   addNewBooks(book: Book){
         this.books.push(book);
         this.booksChanged.next(this.books.slice());
@@ -64,6 +68,10 @@ export class BooksService {
       this.wishlistChanged.next(this.wishlist.slice());
   }
 
+  deleteFromBooks(index: number) {
+    this.books.splice(index, 1);
+    this.booksChanged.next(this.books.slice());
+  }
 }
 
 

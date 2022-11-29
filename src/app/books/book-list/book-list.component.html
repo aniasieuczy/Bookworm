@@ -3,5 +3,6 @@
 <app-book-item
 *ngFor="let bookEl of books; let i = index"
 [book] = "bookEl"
+(click)="addToWishlist(i)"
 ></app-book-item>
 </div>

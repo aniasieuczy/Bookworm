@@ -9,7 +9,7 @@
     <label for="title">Title </label>
     <input type="text" id="title" formControlName="title">
 
-      <p *ngIf="!signupForm.get('author')?.valid && signupForm.get('author')?.touched">Please enter a valid title!</p>
+      <p *ngIf="!signupForm.get('author')?.valid && signupForm.get('author')?.touched">Please enter a author!</p>
     <label for="author">Author </label>
     <input type="text" id="author" formControlName="author">
     <label for="img">Cover </label>
@@ -27,6 +27,7 @@
     </div>
         <div class="newBooks_radioBtn">
       <div id="category">
+        <p *ngIf="!signupForm.get('category')?.valid && signupForm.get('category')?.touched">Please chose a category!</p>
       <label for="category"> Categories: </label>
       </div>
       <div>
