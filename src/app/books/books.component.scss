@@ -6,6 +6,24 @@ form {
   display: flex;
 }
 
+//::placeholder {
+//  color: red;
+//  opacity: 1;
+//}
+
+.ng-invalid.ng-touched {
+  p:nth-of-type(2) {
+    color: red;
+  }
+  //::placeholder {
+  //  color: red;
+  //  opacity: 1;
+  //}
+  p:nth-of-type(3) {
+    color: red;
+  }
+}
+
 .newBooks {
   border: 1px solid #adb5bd;
   display: flex;
@@ -18,6 +36,8 @@ form {
   }
   input {
     margin: 0.2rem;
+
+
   }
 }
 .bookItem {

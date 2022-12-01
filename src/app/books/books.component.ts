@@ -20,51 +20,32 @@ export class BooksComponent implements OnInit {
   signupForm: FormGroup;
   form: FormGroup;
 
-  // checkbox = [
+  // checkboxes = [
   //   {
-  //     label: 'thriller',
-  //     value: 'thriller',
-  //     checked: false
+  //     id: 1,
+  //     name: "naukowe",
+  //     value: 'naukowe',
+  //     selected: false
   //   },
   //   {
-  //     label: 'naukowa',
-  //     value: 'naukowa',
-  //     checked: true,
+  //     id: 2,
+  //     name: "thriller",
+  //     value: 'naukowe',
+  //     selected: false
   //   },
   //   {
-  //     label: 'fantastyka',
-  //     value: 'fantastyka',
-  //     checked: false
+  //     id: 3,
+  //     name: "fantastyka",
+  //     value: 'naukowe',
+  //     selected: false
   //   },
   //   {
-  //     label: 'piękna',
-  //     value: 'piękna',
-  //     checked: false
-  //   },
-  // ];
-
-  checkboxes = [
-    {
-      id: 1,
-      name: "naukowe",
-      selected: false
-    },
-    {
-      id: 2,
-      name: "thriller",
-      selected: false
-    },
-    {
-      id: 3,
-      name: "fantastyka",
-      selected: false
-    },
-    {
-      id: 4,
-      name: "piękna",
-      selected: false
-    }
-  ]
+  //     id: 4,
+  //     name: "piękna",
+  //     value: 'naukowe',
+  //     selected: false
+  //   }
+  // ]
 
   constructor(private bookService: BooksService,
               private formBuilder: FormBuilder) {
@@ -74,12 +55,9 @@ export class BooksComponent implements OnInit {
     this.signupForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
       'author': new FormControl(null, Validators.required),
-      'img': new FormControl(null),
+      'img': new FormControl('https://cdn.shopify.com/s/files/1/0281/0825/9431/products/040617__42339_1024x1024.jpg?v=1587047887'),
       'category': new FormControl(null, Validators.required),
       'wishlist': new FormControl(''),
-      checkboxes: new FormArray([
-        new FormControl
-      ])
     });
     // this.form.formBuilder.group({
     //   checkboxes: this.buildCheckboxes()
@@ -93,8 +71,6 @@ export class BooksComponent implements OnInit {
 //   return this.formBuilder.array(arr);
 // }
 
-
-
   onSubmit() {
     const newBook = new Book(
       this.signupForm.value['title'],
@@ -102,7 +78,6 @@ export class BooksComponent implements OnInit {
       this.signupForm.value['author'],
       this.signupForm.value['category'],
       this.signupForm.value['wishlist'],
-
     );
 
     if (this.signupForm.value['wishlist'] === true) {

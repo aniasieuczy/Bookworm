@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./wislist-item.component.scss']
 })
 export class WislistItemComponent implements OnInit, OnDestroy {
-  // @Input() wishlist: Book;
+  @Input() wishlist: Book;
   subscription: Subscription;
   editingMode = false;
   selectedBookIndex: number;
@@ -22,26 +22,13 @@ export class WislistItemComponent implements OnInit, OnDestroy {
       (index: number) => {
         this.selectedBookIndex = index;
         this.editingMode = true;
-
       }
     )
   }
 
+  onEditItem() {
 
- // onMarkAsOwned() {
-    // this.bookService.bookSelected.subscribe(
-    //   (index: number) => {
-    //     this.selectedBookIndex = index;
-    //   }
-    // )
-    // console.log('uruchomoione' + this.selectedBookIndex);
-    //console.log(this.selectedBookIndex);
-    //this.bookService.delete(this.selectedBookIndex);
-//
-//     console.log(this.selectedBookIndex);
-//     this.bookService.delete(this.selectedBookIndex);
-//   }
-//
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

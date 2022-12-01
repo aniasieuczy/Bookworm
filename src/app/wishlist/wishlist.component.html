@@ -1,28 +1,28 @@
 <app-header></app-header>
 
-<div class="container">
-<div class="container_card" *ngFor="let wish of wishlist; let i = index">
-  <div class="container_card_img">
-  <img src="{{ wish.imagePath }}" alt="" style="max-height: 150px;">
-  </div>
-  <div class="container_card_right">
-  <p> {{ wish.title }}</p>
-  <p> Author: {{ wish.author }}</p>
-    <p> {{ wish.category }}</p>
-  </div>
-  <div class="container_card_button">
-  <button type="submit" (click)="onItemClick(i)">Mark as owned</button>
-  </div>
-</div>
-</div>
-
-<!--<div>-->
-<!--<app-wislist-item-->
-<!--  *ngFor="let wish of wishlist; let i = index"-->
-<!--  [wishlist]="wish"-->
-<!--  (click)="onItemClick(i)"-->
-<!--&gt;</app-wislist-item>-->
+<!--<div class="container">-->
+<!--<div class="container_card" *ngFor="let wish of wishlist; let i = index">-->
+<!--  <div class="container_card_img">-->
+<!--  <img src="{{ wish.imagePath }}" alt="" style="max-height: 150px;">-->
+<!--  </div>-->
+<!--  <div class="container_card_right">-->
+<!--  <p> {{ wish.title }}</p>-->
+<!--  <p> Author: {{ wish.author }}</p>-->
+<!--    <p> {{ wish.category }}</p>-->
+<!--  </div>-->
+<!--  <div class="container_card_button">-->
+<!--  <button type="submit" (click)="onItemClick(i)">Mark as owned</button>-->
+<!--  </div>-->
 <!--</div>-->
+<!--</div>-->
+
+<div>
+<app-wislist-item
+  *ngFor="let wish of wishlist; let i = index"
+  [wishlist]="wish"
+  (click)="onItemClick(i)"
+></app-wislist-item>
+</div>
 
 
 

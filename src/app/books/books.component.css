@@ -6,6 +6,13 @@ form {
   display: flex;
 }
 
+.ng-invalid.ng-touched p:nth-of-type(2) {
+  color: red;
+}
+.ng-invalid.ng-touched p:nth-of-type(3) {
+  color: red;
+}
+
 .newBooks {
   border: 1px solid #adb5bd;
   display: flex;

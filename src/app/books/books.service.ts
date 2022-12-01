@@ -31,7 +31,7 @@ export class BooksService {
         'Moja wymarzona książka',
         'https://edit.org/photos/images/cat/book-covers-big-2019101610.jpg-1300.jpg',
         'Kowalski Jan',
-        'Thriller'),
+        'thriller'),
       new Book (
         'Test',
         'https://img.tantis.pl/image/87fe2194-77c5-4abd-8a75-4e87de46df07/550x400/webp',

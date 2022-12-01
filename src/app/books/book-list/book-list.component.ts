@@ -13,6 +13,7 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
   selectedBookIndex: number;
 
+
   constructor(private booksService: BooksService,
               private router: Router) { }
 
@@ -26,13 +27,19 @@ export class BookListComponent implements OnInit {
       )
   }
 
-  addToWishlist(index: number) {
-    let addWishlist = this.booksService.getBook(index);
-    this.booksService.addToWishlist(addWishlist);
-    this.booksService.deleteFromBooks(index);
-    this.router.navigate(['/wishlist']);
-    console.log(this.booksService.getBook(index));
-  }
+  // addToWishlist(index: number) {
+  //   let addWishlist = this.booksService.getBook(index);
+  //   this.booksService.addToWishlist(addWishlist);
+  //   this.booksService.deleteFromBooks(index);
+  //   this.router.navigate(['/wishlist']);
+  //   console.log(this.booksService.getBook(index));
+  // }
 
+  // onClick(index: number) {
+  //   // console.log(index);
+  //
+  //   this.booksService.bookSelected.next(index);
+  //
+  // }
 
 }
