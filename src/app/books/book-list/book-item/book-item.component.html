@@ -8,8 +8,8 @@
     <div class="bookItem_bookLink_left">
       <p> {{ book.title }} </p>
       <p> Autor: {{ book.author }}</p>
-      <p *ngIf="book.category != null"> Category: {{ book.category }}</p>
-      <button type="button">Add to wishlist</button>
+      <p *ngIf="book.category != null"> {{ book.category }}</p>
+      <button type="button" (click)="addToWishlist()">Add to wishlist</button>
     </div>
   </div>
 </div>

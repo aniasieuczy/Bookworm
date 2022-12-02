@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookDetailComponent } from './book-detail.component';
+import { MultiCheckboxComponent } from './multi-checkbox.component';
 
-describe('BookDetailComponent', () => {
-  let component: BookDetailComponent;
-  let fixture: ComponentFixture<BookDetailComponent>;
+describe('MultiCheckboxComponent', () => {
+  let component: MultiCheckboxComponent;
+  let fixture: ComponentFixture<MultiCheckboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookDetailComponent ]
+      declarations: [ MultiCheckboxComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BookDetailComponent);
+    fixture = TestBed.createComponent(MultiCheckboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

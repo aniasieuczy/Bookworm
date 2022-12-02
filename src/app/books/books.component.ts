@@ -16,84 +16,57 @@ interface ICategories {
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
-  selectedBook: Book;
   signupForm: FormGroup;
   form: FormGroup;
 
-  // checkbox = [
-  //   {
-  //     label: 'thriller',
-  //     value: 'thriller',
-  //     checked: false
-  //   },
-  //   {
-  //     label: 'naukowa',
-  //     value: 'naukowa',
-  //     checked: true,
-  //   },
-  //   {
-  //     label: 'fantastyka',
-  //     value: 'fantastyka',
-  //     checked: false
-  //   },
-  //   {
-  //     label: 'piękna',
-  //     value: 'piękna',
-  //     checked: false
-  //   },
-  // ];
-
-  checkboxes = [
+  Data: Array<any> = [
     {
-      id: 1,
       name: "naukowe",
-      selected: false
+      value: 'naukowe',
     },
     {
-      id: 2,
       name: "thriller",
-      selected: false
+      value: "thriller",
     },
     {
-      id: 3,
       name: "fantastyka",
-      selected: false
+      value:"fantastyka",
     },
     {
-      id: 4,
       name: "piękna",
-      selected: false
+      value: "piękna",
     }
   ]
 
-  constructor(private bookService: BooksService,
-              private formBuilder: FormBuilder) {
+  constructor(private bookService: BooksService) {
   }
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
       'author': new FormControl(null, Validators.required),
-      'img': new FormControl(null),
-      'category': new FormControl(null, Validators.required),
+      'img': new FormControl('https://cdn.shopify.com/s/files/1/0281/0825/9431/products/040617__42339_1024x1024.jpg?v=1587047887'),
+      'category': new FormArray([]),
       'wishlist': new FormControl(''),
-      checkboxes: new FormArray([
-        new FormControl
-      ])
     });
-    // this.form.formBuilder.group({
-    //   checkboxes: this.buildCheckboxes()
-    // })
+
   }
 
-// buildCheckboxes () {
-//     const arr = this.checkboxes.map(box => {
-//       return this.formBuilder.control(box.selected)
-//     })
-//   return this.formBuilder.array(arr);
-// }
-
-
+  onCheckboxChange(e: any) {
+    const category: FormArray = this.signupForm.get('category') as FormArray;
+    if(e.target.checked) {
+      category.push(new FormControl(e.target.value));
+    } else {
+      let i = 0;
+      category.controls.forEach(item => {
+        if(item.value == e.target.value) {
+          category.removeAt(i);
+          return;
+        }
+        i++;
+      })
+    }
+  }
 
   onSubmit() {
     const newBook = new Book(
@@ -102,7 +75,6 @@ export class BooksComponent implements OnInit {
       this.signupForm.value['author'],
       this.signupForm.value['category'],
       this.signupForm.value['wishlist'],
-
     );
 
     if (this.signupForm.value['wishlist'] === true) {
@@ -111,9 +83,11 @@ export class BooksComponent implements OnInit {
       this.signupForm.reset();
     } else {
       this.bookService.addNewBooks(newBook);
+      console.log(this.signupForm.value);
       this.signupForm.reset();
     }
     console.log(this.bookService.getBooks());
+
   }
 
 }

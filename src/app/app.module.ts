@@ -8,9 +8,9 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { BookItemComponent } from './books/book-list/book-item/book-item.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { HeaderComponent } from './header/header.component';
-import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { WislistItemComponent } from './wishlist/wishlist-list/wislist-item/wislist-item.component';
+import { MultiCheckboxComponent } from './books/multi-checkbox/multi-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { WislistItemComponent } from './wishlist/wishlist-list/wislist-item/wisl
     BookItemComponent,
     WishlistComponent,
     HeaderComponent,
-    BookDetailComponent,
     WislistItemComponent,
+    MultiCheckboxComponent,
   ],
   imports: [
     BrowserModule,

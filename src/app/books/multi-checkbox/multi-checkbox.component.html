@@ -1,0 +1,12 @@
+<p>multi-checkbox works!</p>
+
+<form [formGroup]="categoriesForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let data of Data; let i = index">
+    <label>
+      <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)">
+      {{ data.name }}
+    </label>
+  </div>
+  <p *ngIf="this.categoriesForm.controls['checkArray'].errors?.['required']">Checkbox is required. Select at least one value.</p>
+  <input type="submit" value="Submit">
+</form>

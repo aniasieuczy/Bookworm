@@ -8,7 +8,7 @@ import {Subscription} from "rxjs";
   templateUrl: 'wishlist.component.html',
   styleUrls: ['./wishlist.component.scss']
 })
-export class WishlistComponent implements OnInit {
+export class WishlistComponent implements OnInit, OnDestroy {
   wishlist: Book [];
   subs: Subscription;
 
@@ -16,18 +16,15 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.wishlist = this.booksService.getWishlist();
-    this.booksService.wishlistChanged.subscribe(
+    this.subs = this.booksService.wishlistChanged.subscribe(
       (newWishList: Book[]) => {
         this.wishlist = newWishList;
       }
     )
   }
 
-  onItemClick (index: number) {
-    this.booksService.delete(index);
-    this.booksService.wishlistChanged.next(this.wishlist);
-    // this.booksService.bookSelected.next(index);
-    // console.log(index);
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
 
