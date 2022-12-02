@@ -6,7 +6,6 @@ import {BehaviorSubject, Subject} from "rxjs";
 export class BooksService {
   booksChanged = new Subject<Book[]>();
   wishlistChanged = new Subject<Book[]>();
-  bookSelected = new Subject<number>();
 
     private books: Book [] = [
     new Book(
@@ -69,6 +68,10 @@ export class BooksService {
   }
   getWishlist() {
       return this.wishlist.slice();
+  }
+
+  getBookFromWishlist(index: number) {
+    return this.wishlist[index];
   }
 
   delete (id: number) {

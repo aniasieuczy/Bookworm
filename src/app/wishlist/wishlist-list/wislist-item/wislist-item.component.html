@@ -3,7 +3,6 @@
     <div class="bookItem_bookLink_right">
       <img src="{{ wishlist.imagePath }}" [src]="wishlist.imagePath" alt="" style="max-height: 150px;">
     </div>
-
     <div class="bookItem_bookLink_left">
       <p> {{ wishlist.title }} </p>
       <p> Autor: {{ wishlist.author }}</p>
@@ -11,7 +10,6 @@
     </div>
   </div>
     <div class="bookItem_button">
-    <button type="submit" (click)="onEditItem()">Mark as owned</button>
-
+    <button type="submit" (click)="markAsOwned()">Mark as owned</button>
   </div>
 </div>

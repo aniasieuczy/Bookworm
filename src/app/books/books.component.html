@@ -2,9 +2,9 @@
 
 <div class="newBooks">
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-
     <div class="newBooks_left">
     <p>Add a Book</p>
+
       <p *ngIf="!signupForm.get('title')?.valid && signupForm.get('title')?.touched">Book title is required!</p>
     <label for="title">Title </label>
     <input type="text" id="title" formControlName="title" placeholder="Enter a title">
@@ -26,42 +26,43 @@
 
     </div>
 
-        <div class="newBooks_radioBtn">
-      <div id="category">
-        <p *ngIf="!signupForm.get('category')?.valid && signupForm.get('category')?.touched">Please chose a category!</p>
-      <label for="category"> Categories: </label>
-      </div>
-      <div>
-        <input id="naukowe" type="radio" value="naukowe" name="category" formControlName="category">
-        <label for="naukowe">Naukowe</label>
-      </div>
-      <div>
-        <input id="thriller" type="radio" value="thriller" name="category" formControlName="category">
-        <label for="thriller">Thriller, kryminał</label>
-      </div>
-      <div>
-        <input id="fantastyka" type="radio" value="fantastyka" name="category" formControlName="category">
-        <label for="fantastyka">fantastyka</label>
-      </div>
-      <div>
-        <input id="piękna" type="radio" value="piękna" name="category" formControlName="category">
-        <label for="piękna">piękna</label>
-            </div>
+    <div>Categories:
+    <div *ngFor="let data of Data; let i = index;">
+      <label>
+        <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)">
+        {{ data.name }}
+      </label>
+    </div>
     </div>
 
-<!--    <form [formGroup]="form" ></form>-->
-<!--    <div *ngFor="let item of checkboxes">-->
-<!--      <label>-->
-<!--        <input id="item"-->
-<!--               type="checkbox"-->
-<!--               value="item.id"-->
-<!--              formControlName="checkboxes">-->
-<!--        {{ item. name }}-->
-<!--      </label>-->
-
+<!--        <div class="newBooks_radioBtn">-->
+<!--      <div id="category">-->
+<!--        <p *ngIf="!signupForm.get('category')?.valid && signupForm.get('category')?.touched">Please chose a category!</p>-->
+<!--      <label for="category"> Categories: </label>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <input id="naukowe" type="radio" value="naukowe" name="category" formControlName="category">-->
+<!--        <label for="naukowe">naukowe</label>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <input id="thriller" type="radio" value="thriller" name="category" formControlName="category">-->
+<!--        <label for="thriller">thriller, kryminał</label>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <input id="fantastyka" type="radio" value="fantastyka" name="category" formControlName="category">-->
+<!--        <label for="fantastyka">fantastyka</label>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <input id="piękna" type="radio" value="piękna" name="category" formControlName="category">-->
+<!--        <label for="piękna">piękna</label>-->
+<!--            </div>-->
 <!--    </div>-->
+
+<!--    <app-multi-checkbox></app-multi-checkbox>-->
+
   </form>
 </div>
+
 
 <app-book-list></app-book-list>
 <!--<app-book-detail *ngIf="selectedBook"></app-book-detail>-->

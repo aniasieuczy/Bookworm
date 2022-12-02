@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@icon/themify-icons": "^1.0.1-alpha.3",
+    "@scss-icons/themify-icons-scss": "^1.2.0",
     "rxjs": "~7.5.0",
     "ti-icons": "^0.1.2",
     "tslib": "^2.3.0",
